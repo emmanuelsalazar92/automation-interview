@@ -1,6 +1,7 @@
 import { Page, Locator } from '@playwright/test';
 import { NAVIGATION_BAR } from '../locators/locators';
 import { getLocator } from '../utils/locator-helper';
+import { ProductsPage } from './ProductsPage';
 
 export class Navigation {
   readonly page: Page;
