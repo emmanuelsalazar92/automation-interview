@@ -9,6 +9,8 @@ export class ProductDetailPage extends BasePage {
     readonly brand: Locator;
     readonly category: Locator;
     readonly quantity: Locator;
+    readonly addToCart: Locator;
+    readonly viewCartLink: Locator;
 
   constructor(page) {
     super(page);
@@ -17,9 +19,15 @@ export class ProductDetailPage extends BasePage {
     this.brand = getLocator(page, PRODUCTS_DETAILS_PAGE.BRAND_MADAME);
     this.category = getLocator(page, PRODUCTS_DETAILS_PAGE.CATEGORY);
     this.quantity = getLocator(page, PRODUCTS_DETAILS_PAGE.QUANTITY);
+    this.addToCart = getLocator(page, PRODUCTS_DETAILS_PAGE.ADD_TO_CART);
+    this.viewCartLink = getLocator(page, PRODUCTS_DETAILS_PAGE.VIEW_CART);
   }
-    
-  /*async openThirdProduct(): Promise<void> {
-    await this.thirdProduct.click();
-  }*/
+
+  async typeQuantity(quantity: number): Promise<void> {
+    await this.quantity.fill(String(quantity));
+  }
+
+  async addProductToCart(): Promise<void> {
+    await this.addToCart.click();
+  }
 }

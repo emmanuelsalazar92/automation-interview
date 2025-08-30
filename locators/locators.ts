@@ -15,18 +15,21 @@ export const PRODUCTS_DETAILS_PAGE = {
   BRAND_MADAME: { type: 'text', value: 'Brand: Madame' },
   CATEGORY: { type: 'text', value: 'Category: Women > Dress' },
   QUANTITY: { type: 'css', value: '#quantity' },
+  ADD_TO_CART: { type: 'role-button', value: ' Add to cart' },
+  VIEW_CART: { type: 'role-link', value: 'View Cart' },
 } as const;
 
 export const VIEW_CART_PAGE = {
-  THIRD_VIEW_PRODUCT: { type: 'css', value: 'div:nth-child(5) > .product-image-wrapper > .choose > .nav > li > a' },
+  //THIRD_VIEW_PRODUCT: { type: 'css', value: 'div:nth-child(5) > .product-image-wrapper > .choose > .nav > li > a' },
+  //  await page.getByText('Proceed To Checkout').click();
 } as const;
 
 export const LOGIN_PAGE = {
-  THIRD_VIEW_PRODUCT: { type: 'css', value: 'div:nth-child(5) > .product-image-wrapper > .choose > .nav > li > a' },
+  //THIRD_VIEW_PRODUCT: { type: 'css', value: 'div:nth-child(5) > .product-image-wrapper > .choose > .nav > li > a' },
 } as const;
 
 export const SIGNUP_PAGE = {
-  THIRD_VIEW_PRODUCT: { type: 'css', value: 'div:nth-child(5) > .product-image-wrapper > .choose > .nav > li > a' },
+  //THIRD_VIEW_PRODUCT: { type: 'css', value: 'div:nth-child(5) > .product-image-wrapper > .choose > .nav > li > a' },
 } as const;
 
 

@@ -2,8 +2,7 @@ import { expect, test } from '@playwright/test';
 import { MainPage } from '../pages/MainPage';
 import { ProductsPage } from '../pages/ProductsPage';
 import { ProductDetailPage } from '../pages/ProductDetailPage';
-import { Locator } from '@playwright/test';
-import { getLocator } from '../utils/locator-helper';
+import { getRandomQuantity} from '../utils/generate-data'
 
 test.describe('Login Functionality', () => {
   let mainPage: MainPage;
@@ -26,10 +25,11 @@ test.describe('Login Functionality', () => {
       await expect(productDetailPage.quantity).toBeVisible();
     });
     await test.step('I enter a random quantity between 1 and 20', async () => {
-
+      await productDetailPage.typeQuantity(getRandomQuantity());
     });
     await test.step('I add the product to the cart', async () => {
-
+      await productDetailPage.addProductToCart();
+      await expect(productDetailPage.viewCartLink).toBeVisible();
     });
     await test.step('I proceed to checkout', async () => {
 
@@ -43,3 +43,5 @@ test.describe('Login Functionality', () => {
 
   });
 });
+
+
