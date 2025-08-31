@@ -2,14 +2,20 @@ import { expect, test } from '@playwright/test';
 import { MainPage } from '../pages/MainPage';
 import { ProductsPage } from '../pages/ProductsPage';
 import { ProductDetailPage } from '../pages/ProductDetailPage';
+import { LoginPage } from '../pages/LoginPage';
 import { ViewCartPage } from '../pages/ViewCartPage';
-import { getRandomQuantity} from '../utils/generate-data'
+import { SignupPage } from '../pages/SignupPage';
+import { AccountCreatedPage } from '../pages/AccountCreatedPage';
+import { getRandomQuantity, generateNameAndEmail, generateSignupDataForUSA } from '../utils/generate-data'
 
 test.describe('Login Functionality', () => {
   let mainPage: MainPage;
   let productsPage: ProductsPage;
   let productDetailPage: ProductDetailPage;
   let viewCartPage: ViewCartPage;
+  let loginPage: LoginPage;
+  let signupPage: SignupPage;
+  let accountCreatedPage: AccountCreatedPage;
 
   test('TC-001 | Checkout Flow - Add a Product and Proceed to Register', async ({page}) => {
     mainPage = new MainPage(page);
@@ -50,7 +56,36 @@ test.describe('Login Functionality', () => {
     });
 
     await test.step('I am able to create a new user', async () => {
+      loginPage = await viewCartPage.clickRegisterLoginLink();
 
+      const { name, email } = generateNameAndEmail();
+      await loginPage.typeName(name);
+      await loginPage.typeEmail(email);
+
+      signupPage = await loginPage.clickSignup();
+      const signupData = generateSignupDataForUSA();
+      await signupPage.typePassword(signupData.password);
+      await signupPage.typeFirstName(signupData.firstName);
+      await signupPage.typeLastName(signupData.lastName);
+      await signupPage.typeAddress(signupData.address);
+      await signupPage.selectCountry(signupData.country);
+      await signupPage.typeState(signupData.state);
+      await signupPage.typeCity(signupData.city);
+      await signupPage.typeZipcode(signupData.zipcode);
+      await signupPage.typeMobileNumber(signupData.mobileNumber);
+
+      accountCreatedPage = await signupPage.clickCreateAccount();
+      await expect(accountCreatedPage.accountCreatedMessage).toBeVisible();
+
+    });
+
+    await test.step('The Cart has the selected product', async () => {
+      mainPage = await accountCreatedPage.clickContinue();
+
+      viewCartPage = await mainPage.goToViewCart();
+      await expect(viewCartPage.proceedToCheckout).toBeVisible();
+
+      loginPage = await viewCartPage.Logout();
     });
   });
 });

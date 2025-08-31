@@ -1,13 +1,17 @@
 export function getLocator(page: any, locator: any) {
   switch (locator.type) {
   case 'text':
-    return page.getByText(locator.value);
+      return page.getByText(locator.value);
+  case 'label':
+    return page.getByLabel(locator.value);
   case 'role-link':
     return page.getByRole('link', { name: locator.value });
   case 'role-button':
     return page.getByRole('button', { name: locator.value });
   case 'role-heading':
-    return page.getByRole('heading', { name: locator.value });
+      return page.getByRole('heading', { name: locator.value });
+  case 'role-textbox':
+      return page.getByRole('textbox', { name: locator.value });
   case 'css':
     return page.locator(locator.value); 
   default:
