@@ -14,8 +14,8 @@ It validates critical flows on **Desktop** and **Mobile** browsers, and includes
 - Automated functional tests using **Playwright Test Runner**.  
 - Validations executed on **multiple devices and browsers** (desktop + mobile).   
 - Two reporting formats provided:
-  - Playwright native **HTML Report**
-  - **Allure Report** for advanced analytics
+  - Playwright native **HTML Report** Evidence https://github.com/emmanuelsalazar92/automation-interview/blob/main/video/HTML%20Report.mp4
+  - **Allure Report** for advanced analytics Evidence https://github.com/emmanuelsalazar92/automation-interview/blob/main/video/ALLURE%20Report.mp4
 
 ## How to Run
 
