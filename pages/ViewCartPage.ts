@@ -1,17 +1,29 @@
 import { BasePage } from './BasePage';
 import { Locator } from '@playwright/test';
 import { getLocator } from '../utils/locator-helper';
-import { PRODUCTS_PAGE } from '../locators/locators';
+import { VIEW_CART_PAGE } from '../locators/locators';
 
 export class ViewCartPage extends BasePage {
-  readonly thirdProduct: Locator;
+    readonly proceedToCheckout: Locator;
+    readonly registerLoginLink: Locator;
+    readonly checkoutHeading: Locator;
+    readonly messageCheckout: Locator;
+    readonly continueOnCart: Locator;
 
-  constructor(page) {
-    super(page);
-    this.thirdProduct = getLocator(page, PRODUCTS_PAGE.THIRD_VIEW_PRODUCT);
-  }
-    
-  async openThirdProduct(): Promise<void> {
-    await this.thirdProduct.click();
-  }
+    constructor(page) {
+        super(page);
+        this.proceedToCheckout = getLocator(page, VIEW_CART_PAGE.PROCEED_TO_CHECKOUT);
+        this.registerLoginLink = getLocator(page, VIEW_CART_PAGE.REGISTER_LOGIN_LINK);
+        this.checkoutHeading = getLocator(page, VIEW_CART_PAGE.CHECKOUT_HEADING);
+        this.messageCheckout = getLocator(page, VIEW_CART_PAGE.MESSAGE_CHECKOUT);
+        this.continueOnCart = getLocator(page, VIEW_CART_PAGE.CONTINUE_ON_CART);
+    }
+
+    async clickProceedToCheckout(): Promise<void> {
+        await this.proceedToCheckout.click(); 
+    }
+
+    async clickRegisterLoginLink(): Promise<void> {
+        await this.registerLoginLink.click();
+    }
 }

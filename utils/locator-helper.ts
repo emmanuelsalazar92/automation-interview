@@ -6,6 +6,8 @@ export function getLocator(page: any, locator: any) {
     return page.getByRole('link', { name: locator.value });
   case 'role-button':
     return page.getByRole('button', { name: locator.value });
+  case 'role-heading':
+    return page.getByRole('heading', { name: locator.value });
   case 'css':
     return page.locator(locator.value); 
   default:
