@@ -1,6 +1,4 @@
 import { BasePage } from './BasePage';
-import { Locator } from '@playwright/test';
-import { Page } from '@playwright/test';
 import { ProductsPage } from './ProductsPage';
 import { ViewCartPage } from './ViewCartPage';
 
