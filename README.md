@@ -18,6 +18,7 @@ It validates critical flows on **Desktop** and **Mobile** browsers, and includes
   - **Allure Report** for advanced analytics Evidence https://github.com/emmanuelsalazar92/automation-interview/blob/main/video/ALLURE%20Report.mp4
 
 ## How to Run
+User should have a code editor, in my case I used Visual Studio Code version: 1.103.2 on MacOS version: 15.6.1. 
 
 ### 1️⃣ Clone the project
 
