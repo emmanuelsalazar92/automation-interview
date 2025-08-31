@@ -1,9 +1,11 @@
 import { faker } from '@faker-js/faker';
 
+// This function generates a random quantity between min and max
 export function getRandomQuantity(min = 1, max = 20): number {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+// This function generates random name and email
 export function generateNameAndEmail() {
     return {
         name: faker.person.fullName(),
@@ -11,6 +13,7 @@ export function generateNameAndEmail() {
     };
 }
 
+// This function generates random signup data for a user in the USA
 export function generateSignupDataForUSA(): any {
     return {
         firstName: faker.person.firstName(),

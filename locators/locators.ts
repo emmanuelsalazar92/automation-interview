@@ -1,4 +1,6 @@
 
+// This is the file for the locators,  use the locator-helper inside the utils folder
+
 export const NAVIGATION_BAR = {
 	PRODUCTS: { type: "role-link", value: ' Products' },
 	CART: { type: "role-link", value: ' Cart' },

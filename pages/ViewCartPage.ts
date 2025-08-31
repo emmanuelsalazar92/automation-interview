@@ -30,7 +30,7 @@ export class ViewCartPage extends BasePage {
     }
 
     async Logout(): Promise<LoginPage> {
-    await this.navbar.clickLogoutLink();
-    return new LoginPage(this.page);
+        await this.navbar.clickLogoutLink();
+        return new LoginPage(this.page);
   }
 }

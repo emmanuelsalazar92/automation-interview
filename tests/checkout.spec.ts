@@ -8,7 +8,7 @@ import { SignupPage } from '../pages/SignupPage';
 import { AccountCreatedPage } from '../pages/AccountCreatedPage';
 import { getRandomQuantity, generateNameAndEmail, generateSignupDataForUSA } from '../utils/generate-data'
 
-test.describe('Login Functionality', () => {
+test.describe('Checkout Flow', () => {
   let mainPage: MainPage;
   let productsPage: ProductsPage;
   let productDetailPage: ProductDetailPage;
